@@ -237,10 +237,10 @@
         {%- endif -%}
 
         <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %} desktop">
-          <a href="{{ routes.login }}" class="header__icon link focus-inset header__icons--path-login">Login</a>
+          {% comment %} <a href="{{ routes.login }}" class="header__icon link focus-inset header__icons--path-login">Login</a> {% endcomment %}
           <a href="{{ routes.login }}" class="btn btn-primary header__icons--btn-join-us">
-            Join us
-            {% render 'icon-cus-arrow-left' %}
+            Get the Inito kit
+            {% comment %} {% render 'icon-cus-arrow-left' %} {% endcomment %}
           </a>
         </div>
     </header>

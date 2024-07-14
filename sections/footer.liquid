@@ -7,75 +7,158 @@
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   <div class="container">
+    <div class="section-footer-top">
+      <div class="section-footer-top__left">
+        {% if section.blocks.size > 0 %}
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'image_text' %}
+                <div class="footer-top__item">
+                  <div class="footer-top__item-image">
+                    {% if block.settings.image != blank %}
+                      <img
+                        src="{{ block.settings.image | image_url }}"
+                        alt=""
+                        loading="lazy"
+                        width="{{ block.settings.image.width }}"
+                        height="{{ block.settings.image.height }}"
+                        class="block w-full h-full"
+                      >
+                    {% endif %}
+                  </div>
+      
+                  {% if block.settings.text != blank %}
+                    <h5 class="footer-top__item-title">{{ block.settings.text }}</h5>
+                  {% endif %}
+                </div>
+            {% endcase %}
+          {% endfor %}
+        {% endif %}
+      </div>
+  
+      <div class="section-footer-top__right desktop-only">
+        <div class="footer-top__socials">
+          <a href="#"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-footer-middle">
+      <div class="section-footer-middle__logo">
+        <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
+          {%- if settings.logo_footer != blank -%}
+            <div class="header__heading-logo-wrapper">
+              {%- assign logo_alt = settings.logo_footer.alt | default: shop.name | escape -%}
+              {%- assign logo_height = settings.logo_width | divided_by: settings.logo_footer.aspect_ratio -%}
+              {% capture sizes %}(min-width: 750px) {{ settings.logo_width }}px, 50vw{% endcapture %}
+              {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
+              {{ settings.logo_footer | image_url: width: 600 | image_tag:
+                class: 'header__heading-logo',
+                widths: widths,
+                height: logo_height,
+                width: settings.logo_width,
+                alt: logo_alt,
+                sizes: sizes,
+                preload: true
+              }}
+            </div>
+          {%- else -%}
+            <span class="h2">{{ shop.name }}</span>
+          {%- endif -%}
+        </a>
+      </div>
+
+      <div class="section-footer-middle__socials">
+        <a href="#">
+          {% render 'icon-social-facebook' %}
+        </a>
+
+        <a href="#">
+          {% render 'icon-social-youtube' %}
+        </a>
+
+        <a href="#">
+          {% render 'icon-social-linked' %}
+        </a>
+      </div>
+    </div>
     <div class="footer_content">
       <div class="footer_content--box-columns info_company">
-        <h5>Company Info</h5>
-          <div class="footer_content--box-columns--links link_items">
-            <ul>
-              {% for link in linklists.menu-footer-company-info.links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
+        <accordion-dropdown class="block">
+          <h4 class="accordion-title">
+            <span class="heading">Company Info</span>
+            <div class="chevron-arrow">
+              <span class="open ">{% render 'icon-arrow-dropdown-down' %}</span>
+              <span class="close hidden">{% render 'icon-arrow-dropdown-up' %}</span>
+            </div>
+          </h4>
+          <div class="accordion-content">
+            <div class="footer_content--box-columns--links link_items">
+              <ul>
+                {% for link in linklists.menu-footer-company-info.links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
+        </accordion-dropdown>
       </div>
 
       <div class="footer_content--box-columns legal">
-        <h5>Legal</h5>
-          <div class="footer_content--box-columns--links link_items">
-            <ul>
-              {% for link in linklists.menu-footer-legal.links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
+        <accordion-dropdown class="block ">
+          <h4 class="accordion-title">
+            <span class="heading">Support</span>
+            <div class="chevron-arrow">
+              <span class="open ">{% render 'icon-arrow-dropdown-down' %}</span>
+              <span class="close hidden">{% render 'icon-arrow-dropdown-up' %}</span>
+            </div>
+          </h4>
+          <div class="accordion-content">
+            <div class="footer_content--box-columns--links link_items">
+              <ul>
+                {% for link in linklists.menu-footer-support.links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
-      </div>
-
-      <div class="footer_content--box-columns features">
-        <h5>Features</h5>
-          <div class="footer_content--box-columns--links link_items">
-            <ul>
-              {% for link in linklists.menu-footer-features.links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
-      </div>
-
-      <div class="footer_content--box-columns resources">
-        <h5>Resources</h5>
-          <div class="footer_content--box-columns--links link_items">
-            <ul>
-              {% for link in linklists.menu-footer-resources.links %}
-                <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </div>
+        </accordion-dropdown>
       </div>
 
       <div class="footer_content--box-columns contact">
-        <h5>Get In Touch</h5>
-          <div class="footer_content--box-columns--links link_items">
-            <ul>
-              <li><a href="tel:4805550103">
-                {% render 'icon-cus-phone' %}
-                (480) 555-0103
-              </a></li>
-              <li><a href="">
-                {% render 'icon-cus-address' %}
-                4517 Washington Ave. Manchester, 
-              Kentucky 39495
-            </a></li>
-              <li><a href="mailto:debra.holt@example.com">
-                {% render 'icon-cus-email' %}
-                debra.holt@example.com
-              </a></li>
-            </ul>
+        <accordion-dropdown class="block ">
+          <h4 class="accordion-title">
+            <span class="heading">Get In Touch</span>
+            <div class="chevron-arrow">
+              <span class="open ">{% render 'icon-arrow-dropdown-down' %}</span>
+              <span class="close hidden">{% render 'icon-arrow-dropdown-up' %}</span>
+            </div>
+          </h4>
+          <div class="accordion-content">
+            <div class="footer_content--box-columns--links link_items">
+              <ul>
+                <li>
+                  <a href="tel:+18153690989">
+                    +1 815-369-0989
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:help@inito.com">help@inito.com</a> 
+                </li>
+                <li>
+                  <a href="https://maps.app.goo.gl/f1aCrjtiSAGV5AZH6" target="_blank">
+                    355 Bryant Street, Unit 403, San Francisco CA 94107
+                  </a>
+                 </li>
+              </ul>
+            </div>
           </div>
+        </accordion-dropdown>
       </div>
     </div>
   </div>
 
-  <div class="footer__subcribe">
+  <div class="footer__subcribe hidden">
     <div class="container">
       <p>Brandname. All Right Reserved</p>
       <div class="footer__subcribe--socials">
@@ -196,6 +279,23 @@
             }
           ],
           "default": "center"
+        }
+      ]
+    },
+    {
+      "type": "image_text",
+      "name": "Image Text",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "TRUSTED BY 20,000+ COUPLES"
         }
       ]
     }

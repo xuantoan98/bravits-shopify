@@ -1273,3 +1273,55 @@ class ProductRecommendations extends HTMLElement {
 }
 
 customElements.define('product-recommendations', ProductRecommendations);
+
+class AccordionDropdown extends HTMLElement {
+  constructor() {
+    super();
+    this.summary = this.querySelector('.accordion-title');
+    this.detail = this.querySelector('.accordion-content');
+    this.detail.style.height = 0;
+    this.toggleActive();
+  }
+
+  toggleActive() {
+    this.summary.addEventListener('click', () => {
+      document.querySelectorAll('accordion-dropdown').forEach((accordion) => {
+        if(accordion != this) {
+          accordion.querySelector('.accordion-content').style.height = 0;
+          accordion.classList.remove('active');
+        }
+      });
+      this.classList.toggle('active');
+
+      if (this.classList.contains('active')) {
+        this.detail.style.height = this.detail.scrollHeight + 'px';
+      } else {
+        this.detail.style.height = 0;
+      }
+    })
+  }
+}
+
+customElements.get('accordion-dropdown') || customElements.define('accordion-dropdown', AccordionDropdown);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elmComments = document.querySelectorAll('.section-comments')
+  if (elmComments.length > 0) {
+    elmComments.forEach(section => {
+      const swiper = new Swiper(section.querySelector('.swiper'), {
+        loop: false,
+        spaceBetween: 0,
+        slidesPerView: 1,
+        navigation: {
+          nextEl: section?.querySelector('.swiper-button-next'),
+          prevEl: section?.querySelector('.swiper-button-prev'),
+        },
+        pagination: {
+          el: section?.querySelector('.swiper-pagination'),
+          type: 'bullets',
+          clickable: true,
+        }
+      })
+    })
+  }
+});

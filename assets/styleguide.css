@@ -1,7 +1,10 @@
 :root {
   --black: #252b42;
+  --black-second: #112D35;
   --secondary-3: #ffd9cd;
   --secondary-2: #ff876c;
+  --secondary-4: #3F555D;
+  --secondary-5: #C4C4C4;
   --white: #ffffff;
   --rose: #ffd8cc;
   --grey3: #f3f3f3;
@@ -9,7 +12,7 @@
   --grey4: #7d7d7d;
   --grey5: #8a8a8a;
   --second-text-color: #737373;
-  --primary-color: #96bb7c;
+  --primary-color: #1F94AA;
 }
 
 /* Monserrat Font */
@@ -70,7 +73,7 @@
 }
 
 body {
-  color: var(--black);
+  color: var(--secondary-4);
   font-weight: 400;
   font-family: "Montserrat";
   font-size: 14px;
@@ -81,7 +84,7 @@ body {
 p,
 a {
   font-family: "Montserrat";
-  color: var(--black);
+  color: var(--secondary-4);
   text-align: center;
   font-size: 16px;
   font-style: normal;
@@ -101,8 +104,8 @@ a:not([disabled]):hover {
 h1,
 .h1 {
   font-family: "Montserrat";
-  color: var(--black);
-  font-size: 58px;
+  color: var(--black-second);
+  font-size: 48px;
   font-style: normal;
   font-weight: 700;
   line-height: 80px;
@@ -112,7 +115,7 @@ h1,
 h2,
 .h2 {
   font-family: "Montserrat";
-  color: var(--black);
+  color: var(--black-second);
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -123,7 +126,7 @@ h2,
 h3,
 .h3 {
   font-family: "Montserrat";
-  color: var(--black);
+  color: var(--black-second);
   font-size: 36px;
   font-style: normal;
   font-weight: 400;
@@ -134,7 +137,7 @@ h3,
 h4,
 .h4 {
   font-family: "Montserrat";
-  color: var(--black);
+  color: var(--black-second);
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
@@ -145,12 +148,23 @@ h4,
 h5,
 .h5 {
   font-family: "Montserrat";
-  color: var(--black);
+  color: var(--black-second);
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 0.1px;
+  letter-spacing: 0;
+}
+
+h6,
+.h6 {
+  font-family: "Montserrat";
+  color: var(--black-second);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0;
 }
 
 .btn-primary,
@@ -158,22 +172,21 @@ h5,
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 52px;
-  min-width: 137px;
+  height: 51px;
   background: var(--primary-color);
   color: var(--white);
   font-family: "Montserrat";
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
-  line-height: 22px;
-  letter-spacing: 0.2px;
+  line-height: 19px;
+  letter-spacing: 0;
   text-align: center;
   outline: none;
   cursor: pointer;
-  text-transform: capitalize;
+  text-transform: none;
   text-decoration: none;
-  border-radius: 4px;
-  padding: 15px 25px;
+  border-radius: 50px;
+  padding: 0 36px;
 }
 
 .btn-secondary,
@@ -181,22 +194,22 @@ h5,
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 48px;
-  min-width: 133px;
+  height: 51px;
+  min-width: 167px;
   background: inherit;
   color: var(--primary-color);
   font-family: "Montserrat";
   font-size: 14px;
   font-weight: 700;
   line-height: 22px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0;
   text-align: center;
   outline: none;
   cursor: pointer;
-  text-transform: capitalize;
+  text-transform: none;
   text-decoration: none;
-  border-radius: 4px;
-  padding: 8px 16px;
+  border-radius: 50px;
+  padding: 0 36px;
 }
 
 .btn-full {
@@ -267,9 +280,7 @@ body {
 
 .page-width,
 .container {
-  max-width: 1440px;
-  padding-left: 195px;
-  padding-right: 195px;
+  padding: 0 100px;
   position: relative;
   margin: auto;
 }
@@ -302,15 +313,37 @@ body {
   }
 }
 
-
 @media all and (max-width: 767px) {
+  .btn-primary,
+  .btn.btn-primary {
+    padding: 0 32px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19px;
+    text-align: center;
+    max-width: 159px;
+    height: 47px;
+  }
+}
+
+.image_mobile,
+.mobile {
+  display: block;
+}
+
+.image_desktop,
+.desktop {
+  display: none;
+}
+
+@media all and (min-width: 768px) {
   .image_mobile,
   .mobile {
-    display: block;
+    display: none;
   }
 
   .image_desktop,
   .desktop {
-    display: none;
+    display: block;
   }
 }

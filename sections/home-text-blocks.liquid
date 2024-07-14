@@ -1,0 +1,179 @@
+<div class="{{ section.class }} section-home-text-blocks" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="section-home-text-blocks__left">
+      {% if section.settings.section_heading != blank %}
+        <h2 class="section-home-text-blocks__left-heading">{{ section.settings.section_heading }}</h2>
+      {% endif %}
+
+      {% if section.settings.sub_heading != blank %}
+        <div class="section-home-text-blocks__left-sub-heading">{{ section.settings.sub_heading }}</div>
+      {% endif %}
+
+      {% if section.settings.text_link != blank and section.settings.url_link != blank %}
+        <a href="{{ section.settings.url_link }}" class="btn btn-primary section-home-text-blocks__left-link">{{ section.settings.text_link }}</a>
+      {% endif %}
+
+      {% if section.settings.note != blank %}
+        <p class="section-home-text-blocks__left-note">{{ section.settings.note }}</p>
+      {% endif %}
+    </div>
+
+    <div class="section-home-text-blocks__right">
+      {% if section.blocks.size > 0 %}
+        {% for block in section.blocks %}
+          <div class="text-block-item">
+            <div class="text-block-item__image">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url }}"
+                  alt=""
+                  loading="lazy"
+                  width="{{ block.settings.image.width }}"
+                  height="{{ block.settings.image.height }}"
+                  class="block w-full h-full"
+                >
+              {% endif %}
+            </div>
+
+            <div class="text-block-item__content">
+              {%- if block.settings.number != blank -%}
+                <div class="text-block-item__content-number">{{ block.settings.number }}</div>
+              {%- endif -%}
+
+              {% if block.settings.title != blank %}
+                <div class="text-block-item__content-title">{{ block.settings.title }}</div>
+              {% endif %}
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<style>
+  [data-section-id="{{ section.id }}"] {
+    padding-top: {{ section.settings.padding_top_mb }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mb }}px;
+  }
+
+  @media all and (min-width: 768px) {
+    [data-section-id="{{ section.id }}"] {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+
+{% schema %}
+{
+  "name": "Home Text Blocks",
+  "class": "home-text-blocks",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Your own fertility lab at your fingertips"
+    },
+    {
+      "type": "textarea",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Easy-to-read fertility diagnostic results directly on your iPhone, in just 5 minutes."
+    },
+    {
+      "type": "url",
+      "id": "url_link",
+      "label": "Url Link"
+    },
+    {
+      "type": "text",
+      "id": "text_link",
+      "label": "Text Link",
+      "default": "Get the Inito kit"
+    },
+    {
+      "type": "textarea",
+      "id": "note",
+      "label": "Text Notes",
+      "default": "* The Inito Fertility Monitor currently supports iPhone 7 and up. Android phones are not supported at the moment."
+    },
+    {
+      "type": "header",
+      "content": "Space section"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Space Top Desktop",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Space Bottom Desktop",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mb",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Space Top Mobile",
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mb",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Space Bottom Mobile",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_text",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Text number",
+          "default": "1"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Dip the test strip in urine for 15 seconds."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Home Text Blocks"
+    }
+  ]
+}
+{% endschema %}
