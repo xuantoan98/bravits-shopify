@@ -1,1 +1,1 @@
-# wgwentech-shopify
+# Brave-bits-shopify
