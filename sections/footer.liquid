@@ -36,10 +36,24 @@
         {% endif %}
       </div>
   
-      <div class="section-footer-top__right desktop-only">
+      <div class="section-footer-top__right desktop">
         <div class="footer-top__socials">
           <a href="#"></a>
         </div>
+      </div>
+
+      <div class="section-footer-middle__socials desktop">
+        <a href="#">
+          {% render 'icon-social-facebook' %}
+        </a>
+
+        <a href="#">
+          {% render 'icon-social-youtube' %}
+        </a>
+
+        <a href="#">
+          {% render 'icon-social-linked' %}
+        </a>
       </div>
     </div>
 
@@ -68,7 +82,7 @@
         </a>
       </div>
 
-      <div class="section-footer-middle__socials">
+      <div class="section-footer-middle__socials mobile">
         <a href="#">
           {% render 'icon-social-facebook' %}
         </a>
@@ -81,8 +95,53 @@
           {% render 'icon-social-linked' %}
         </a>
       </div>
+
+      <div class="footer_content desktop">
+        <div class="footer_content--box-columns info_company">
+          <h5>Company Info</h5>
+            <div class="footer_content--box-columns--links link_items">
+              <ul>
+                {% for link in linklists.menu-footer-company-info.links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+        </div>
+  
+        <div class="footer_content--box-columns legal">
+          <h5>Support</h5>
+            <div class="footer_content--box-columns--links link_items">
+              <ul>
+                {% for link in linklists.menu-footer-support.links %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+        </div>
+
+        <div class="footer_content--box-columns contact">
+          <h5>Get In Touch</h5>
+            <div class="footer_content--box-columns--links link_items">
+              <ul>
+                <li>
+                  <a href="tel:+18153690989">
+                    +1 815-369-0989
+                  </a>
+                </li>
+                <li>
+                  <a href="mailto:help@inito.com">help@inito.com</a> 
+                </li>
+                <li>
+                  <a href="https://maps.app.goo.gl/f1aCrjtiSAGV5AZH6" target="_blank">
+                    355 Bryant Street, Unit 403, San Francisco CA 94107
+                  </a>
+                 </li>
+              </ul>
+            </div>
+        </div>
+      </div>
     </div>
-    <div class="footer_content">
+    <div class="footer_content mobile">
       <div class="footer_content--box-columns info_company">
         <accordion-dropdown class="block">
           <h4 class="accordion-title">

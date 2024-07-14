@@ -328,22 +328,22 @@ body {
 
 .image_mobile,
 .mobile {
-  display: block;
+  display: block !important;
 }
 
 .image_desktop,
 .desktop {
-  display: none;
+  display: none !important;
 }
 
 @media all and (min-width: 768px) {
   .image_mobile,
   .mobile {
-    display: none;
+    display: none !important;
   }
 
   .image_desktop,
   .desktop {
-    display: block;
+    display: block !important;
   }
 }

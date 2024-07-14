@@ -10,16 +10,15 @@ sticky-header .header--middle-left {
 }
 
 .header--middle-left .header__inline-menu {
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .header--middle-left .header__inline-menu .header__menu-item {
-  color: var(--second-text-color);
+  color: var(--secondary-4);
   padding: 0;
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
-  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
 }
 
 .header__active-menu-item {
@@ -1177,6 +1176,7 @@ accordion-dropdown.active .chevron-arrow .open {
     display: flex;
     gap: 40px;
     align-items: center;
+    justify-content: space-between;
   }
 
   .section-home-text-blocks__right {
@@ -1217,6 +1217,8 @@ accordion-dropdown.active .chevron-arrow .open {
   .section-questions .container {
     display: flex;
     align-items: center;
+    grid-area: 128px;
+    justify-content: space-between;
   }
 
   .section-questions__left-heading {
@@ -1237,4 +1239,61 @@ accordion-dropdown.active .chevron-arrow .open {
   .accordion-item {
     padding: 32px;
   }
+
+  sticky-header .header--middle-left {
+    grid-template-columns: auto 1fr;
+  }
+
+  .header__inline-menu .list-menu--inline {
+    padding-right: 30px;
+  }
+
+  .section-footer-top__left {
+    flex-direction: row;
+    border: 0;
+    gap: 32px;
+    padding-bottom: 0;
+  }
+
+  .section-footer-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #FFFFFF1A;
+    padding-bottom: 40px;
+  }
+
+  .section-footer-top .section-footer-middle__socials {
+    display: flex !important;
+  }
+  
+  .footer_content.desktop {
+    display: flex !important;
+    column-gap: 108px;
+    max-width: 690px;
+    padding: 0;
+  }
+
+  .section-footer-middle {
+    padding: 40px 0;
+    padding-bottom: 0;
+  }
+
+  .footer_content--box-columns--links ul li {
+    margin-bottom: 24px;
+    font-size: 15px;
+    line-height: 25px;
+  }
+
+  .footer_content--box-columns h5 {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 19px;
+  }
+
+  .footer_content--box-columns--links.link_items {
+    margin-top: 25px;
+  }
+
+
 }
