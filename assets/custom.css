@@ -1009,7 +1009,8 @@ accordion-dropdown.active .chevron-arrow .open {
   }
 
   .banner_text__content_logo--text-right h2 {
-    line-height: 58px;
+    line-height: 50px;
+    font-size: 36px;
   }
 
   .banner_text__content_logo--text-right p {
