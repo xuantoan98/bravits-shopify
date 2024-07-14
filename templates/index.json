@@ -1,0 +1,93 @@
+{
+  "sections": {
+    "home_banner_7qUq7T": {
+      "type": "home-banner",
+      "settings": {
+        "banner_image_left": "shopify://shop_images/hero-cover-1_1_1.jpg",
+        "banner_text_1": "Welcome",
+        "banner_text_2": "Best Learning Opportunities",
+        "banner_text_3": "Our goal is to make online education work for everyone",
+        "text_link_1": "Join Us",
+        "url_link_1": "",
+        "text_link_2": "Learn More",
+        "url_link_2": ""
+      }
+    },
+    "home_packages_VCVjDn": {
+      "type": "home-packages",
+      "settings": {
+        "image": "shopify://shop_images/thumb-concept_0f61811b-dbcd-421e-bdb7-0c7983acbc27.png",
+        "package_text_1": "Approdable Packages",
+        "package_text_2": "Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics",
+        "package_text_3": "Our goal is to make online education work for everyone",
+        "url_link": "#",
+        "text_link": "Learn More"
+      }
+    },
+    "home_teams_FdGENG": {
+      "type": "home-teams",
+      "blocks": {
+        "teams_UT4LeD": {
+          "type": "teams",
+          "settings": {
+            "person_image": "shopify://shop_images/user-cover-1.png",
+            "person_name": "Julian Jameson",
+            "person_position": "Profession",
+            "url_fb": "https://www.google.com/",
+            "url_insta": "https://www.google.com/",
+            "url_tw": "https://www.google.com/"
+          }
+        },
+        "teams_tjnaF7": {
+          "type": "teams",
+          "settings": {
+            "person_image": "shopify://shop_images/user-cover-2.png",
+            "person_name": "Julian Jameson",
+            "person_position": "Profession",
+            "url_fb": "https://www.google.com/",
+            "url_insta": "https://www.google.com/",
+            "url_tw": "https://www.google.com/"
+          }
+        },
+        "teams_4y3cmb": {
+          "type": "teams",
+          "settings": {
+            "person_image": "shopify://shop_images/user-cover-3.png",
+            "person_name": "Julian Jameson",
+            "person_position": "Profession",
+            "url_fb": "https://www.google.com/",
+            "url_insta": "https://www.google.com/",
+            "url_tw": "https://www.google.com/"
+          }
+        },
+        "teams_etzCKd": {
+          "type": "teams",
+          "settings": {
+            "person_image": "shopify://shop_images/user-cover-4.png",
+            "person_name": "Julian Jameson",
+            "person_position": "Profession",
+            "url_fb": "https://www.google.com/",
+            "url_insta": "https://www.google.com/",
+            "url_tw": "https://www.google.com/"
+          }
+        }
+      },
+      "block_order": [
+        "teams_UT4LeD",
+        "teams_tjnaF7",
+        "teams_4y3cmb",
+        "teams_etzCKd"
+      ],
+      "settings": {
+        "teams_label": "Team",
+        "teams_title": "Get Quality Education",
+        "teams_description": "Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics"
+      }
+    }
+  },
+  "order": [
+    "home_banner_7qUq7T",
+    "home_packages_VCVjDn",
+    "home_teams_FdGENG"
+  ]
+}
